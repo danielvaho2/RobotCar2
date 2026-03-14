@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/listViewDevices"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/buttonConnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conectar"/>
+    <Button
+        android:id="@+id/buttonRight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Derecha"
+        android:textSize="15sp"
+        android:padding="16dp"/>
+    <Button
+        android:id="@+id/buttonStop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:textSize="15sp"
+        android:padding="16dp"/>
+    <Button
+        android:id="@+id/buttonForward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⬆️ Mover adelante"
+        android:textSize="15sp"
+        android:padding="16dp"/>
+</LinearLayout>
