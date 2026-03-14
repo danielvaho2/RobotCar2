@@ -55,16 +55,45 @@ class MainActivity : AppCompatActivity() {
             } ?: Toast.makeText(this, "Selecciona un dispositivo primero", Toast.LENGTH_SHORT).show()
         }
 
-        buttonForward.setOnClickListener {
-            sendCommand("F")
+        buttonForward.setOnTouchListener { _, event ->
+            when (event.action) {
+                android.view.MotionEvent.ACTION_DOWN -> sendCommand("F")  // empieza a avanzar
+                android.view.MotionEvent.ACTION_UP -> sendCommand("S")    // se detiene al soltar
+            }
+            true
         }
-        buttonStop.setOnClickListener {
-            sendCommand("S")
-        }
-        buttonRight.setOnClickListener {
-            sendCommand("R")
-        }
+
+        buttonRight.setOnTouchListener { _, event ->
+            when (event.action) {
+                android.view.MotionEvent.ACTION_DOWN -> sendCommand("R")  // empieza a girar
+                android.view.MotionEvent.ACTION_UP -> sendCommand("S")    // se detiene al soltar
+            }
+            true
+            }
+
+// Esto de abajo se supone es que si hago tap avanza y detiene
+
+        //  buttonForward.setOnTouchListener { _, event ->
+        //     when (event.action) {
+        //      android.view.MotionEvent.ACTION_DOWN -> sendCommand("F")  // empieza a avanzar
+        //     android.view.MotionEvent.ACTION_UP,
+        //    android.view.MotionEvent.ACTION_CANCEL -> sendCommand("S")  // se detiene al soltar
+        //  }
+        //  true
+       // }
+
+        // buttonRight.setOnTouchListener { _, event ->
+        //  when (event.action) {
+        //     android.view.MotionEvent.ACTION_DOWN -> sendCommand("R")  // empieza a girar
+        //     android.view.MotionEvent.ACTION_UP,
+        //      android.view.MotionEvent.ACTION_CANCEL -> sendCommand("S")  // se detiene al soltar
+        //  }
+        //   true
+        // }
+        buttonStop.setOnClickListener { sendCommand("S") }
     }
+
+
 
     private fun loadBondedDevices() {
         val pairedDevices: Set<BluetoothDevice>? = bluetoothAdapter?.bondedDevices
